@@ -137,6 +137,7 @@ export default {
     },
     submitError(model) {
       this.$root.$emit('error', model)
+      this.location(model.instance(model.attr('order')))
       return Promise.reject(model)
     },
     appSuccess(model) {
@@ -176,7 +177,6 @@ export default {
       model3ds = model
     },
     location(model) {
-      this.order = model.data
       //        console.warn('model.inProgress()', 'order.in_progress', model.inProgress())
       //        console.warn('model.readyToSubmit()', 'order.ready_to_submit', model.readyToSubmit())
       //        console.warn('model.waitForResponse()', 'order.pending', model.waitForResponse())
